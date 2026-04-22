@@ -1,0 +1,203 @@
+# Api_forms_exel_ui+
+Melhorando um formulário utilizando IA para deixar mais atrativo 
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - Bike Store Copa 2026</title>
+    <style>
+        :root {
+            --brazil-green: #009739;
+            --brazil-yellow: #FFDF00;
+            --brazil-blue: #002776;
+            --bg-gray: #f4f7f6;
+            --text-dark: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-gray);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .form-container {
+            background: white;
+            max-width: 600px;
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            border-top: 10px solid var(--brazil-green);
+        }
+
+        .header-image {
+            width: 100%;
+            height: 200px;
+            background: var(--brazil-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            /* Substitua pela URL da sua imagem temática da copa/bikes */
+            background-image: linear-gradient(rgba(0,39,118,0.7), rgba(0,39,118,0.7)), url('https://images.unsplash.com/photo-1485965120184-e220f721d03e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        h1 { font-size: 24px; margin-bottom: 10px; color: var(--brazil-blue); }
+        p { color: #666; margin-bottom: 25px; }
+
+        .app-preview {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 2px solid #eee;
+        }
+
+        .question-group {
+            margin-bottom: 25px;
+        }
+
+        .question-title {
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        /* Estilização das opções de rádio (UI Moderna) */
+        .option-container {
+            display: block;
+            position: relative;
+            padding: 12px 15px 12px 45px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .option-container:hover {
+            border-color: var(--brazil-green);
+            background: #f0fff4;
+        }
+
+        .option-container input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .checkmark {
+            position: absolute;
+            top: 12px;
+            left: 15px;
+            height: 20px;
+            width: 20px;
+            background-color: #eee;
+            border-radius: 50%;
+        }
+
+        .option-container input:checked ~ .checkmark {
+            background-color: var(--brazil-green);
+        }
+
+        .option-container input:checked ~ .checkmark:after {
+            display: block;
+        }
+
+        .option-container .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+            left: 7px;
+            top: 3px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--brazil-green);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+            box-shadow: 0 4px 0 #00702a;
+        }
+
+        .submit-btn:hover {
+            background-color: #007d2f;
+        }
+
+        .submit-btn:active {
+            box-shadow: none;
+            transform: translateY(4px);
+        }
+
+        .badge-copa {
+            background: var(--brazil-yellow);
+            color: var(--brazil-blue);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <div class="header-image">
+            <div>
+                <span class="badge-copa">COPA 2026 EDITION</span>
+                <h1>Pedale rumo ao Hexa!</h1>
+            </div>
+        </div>
+
+        <div class="content">
+            <p>Sua opinião é o nosso combustível. Como foi sua experiência na nossa loja?</p>
+
+            <label class="question-title">Confira as novidades do nosso App:</label>
+            <img src="https://via.placeholder.com/600x300/f0f0f0/666666?text=Print+da+Sua+Loja+de+Bicicletas" alt="Preview do App" class="app-preview">
+
+            <form action="#">
+                <div class="question-group">
+                    <label class="question-title">Você indicaria o aplicativo para outra pessoa?</label>
+                    
+                    <label class="option-container">Sim, com certeza!
+                        <input type="radio" name="indicacao" value="sim">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="option-container">Indicaria, mas com ressalvas.
+                        <input type="radio" name="indicacao" value="ressalvas">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="option-container">Indicaria após novas mudanças.
+                        <input type="radio" name="indicacao" value="mudancas">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="option-container">Não indicaria no momento.
+                        <input type="radio" name="indicacao" value="na
